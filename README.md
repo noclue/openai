@@ -1,6 +1,12 @@
 # openai
 
-A Go client bindings library and CLI for the OpenAI API.
+Welcome to the Go client bindings library and CLI for the OpenAI API! With this tool, you can easily interact with the OpenAI API from your Go projects and command line.
+
+Some of the things you can do with the CLI include:
+
+* Generate images using the Image API
+* Create variations of images
+* Edit images with specified masks and prompt
 
 ## Features
 
