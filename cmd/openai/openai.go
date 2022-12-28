@@ -20,6 +20,7 @@ func main() {
 	var size string
 	var responseFormat string
 	var user string
+	var mask string
 
 	addImageFlags := func(cmd *cobra.Command) {
 		cmd.Flags().IntVarP(&numImages, "num-images", "n", 1, "number of images (optional, default: 1)")
@@ -60,6 +61,21 @@ func main() {
 	}
 	addImageFlags(createImageVariationsCmd)
 	imageCmd.AddCommand(createImageVariationsCmd)
+
+	var CreateImageEditsCmd = &cobra.Command{
+		Use:   "edits [image file] [prompt]",
+		Short: "Create image edits from the provided image and prompt",
+		Long:  `Create image edits from the provided image and prompt. The image to use as the basis for the edit(s) must be a valid PNG file, less than 4MB, and square. The prompt is a text description of the desired edit(s). The maximum length of the prmpt is 1000 characters.`,
+		Args:  cobra.ExactArgs(2),
+		Run: func(cmd *cobra.Command, args []string) {
+			imageFile := args[0]
+			prompt := args[1]
+			imageEdits(imageFile, prompt, mask, numImages, getSize(size), getResponseFormat(responseFormat), user)
+		},
+	}
+	addImageFlags(CreateImageEditsCmd)
+	CreateImageEditsCmd.Flags().StringVarP(&mask, "mask", "m", "", "An additional image whose fully transparent areas (e.g. where alpha is zero) indicate where image should be edited. Must be a valid PNG file, less than 4MB, and have the same dimensions as image. (optional, default: none)")
+	imageCmd.AddCommand(CreateImageEditsCmd)
 
 	rootCmd.Execute()
 
@@ -127,6 +143,42 @@ func imageVariations(imageFile string, numImages int, size openai.ImageSize, res
 	client := openai.NewOpenAI(os.Getenv("OPENAI_API_KEY"))
 	res, err := client.CreateImageVariations(openai.CreateImageVariationsReq{
 		Image: imageFile,
+		CommonImageReq: openai.CommonImageReq{
+			N:              &numImages,
+			Size:           size,
+			ResponseFormat: responseFormat,
+			User:           user,
+		},
+	})
+
+	if err != nil {
+		fmt.Printf("Encountered Error: %+v", err)
+		os.Exit(1)
+	}
+
+	fmt.Printf("Response: %+v", res)
+}
+
+func imageEdits(imageFile string, prompt string, mask string, numImages int, size openai.ImageSize, responseFormat openai.ResponseFormat, user string) {
+	if _, err := os.Stat(imageFile); os.IsNotExist(err) {
+		fmt.Println("Image file does not exist: ", imageFile)
+		os.Exit(1)
+	}
+	if mask != "" {
+		if _, err := os.Stat(mask); os.IsNotExist(err) {
+			fmt.Println("Mask file does not exist: ", mask)
+			os.Exit(1)
+		}
+	}
+	if len(prompt) < 5 {
+		fmt.Println("Prompt must be at least 5 characters long")
+		os.Exit(1)
+	}
+	client := openai.NewOpenAI(os.Getenv("OPENAI_API_KEY"))
+	res, err := client.CreateImageEdits(openai.CreateImageEditsReq{
+		Image:  imageFile,
+		Prompt: prompt,
+		Mask:   mask,
 		CommonImageReq: openai.CommonImageReq{
 			N:              &numImages,
 			Size:           size,

@@ -118,3 +118,49 @@ func (o *openAI) CreateImageVariations(req CreateImageVariationsReq) (*ImageResp
 	}
 	return resp, nil
 }
+
+// CreateImageEditsReq contains the request paramters for the OpenAI API to
+// generate image edits.
+type CreateImageEditsReq struct {
+	CommonImageReq
+
+	// Image is the path to an image file to generate variations from. Must be
+	// a valid .png image, sqaure in shape, and less than 4MB in size.
+	// (required)
+	Image string
+	// Mask is the path to an image file to use as a mask. Must be a valid .png
+	// image, sqaure in shape, and less than 4MB in size. (optional)
+	Mask string
+	// Prompt is a text description of the desired image. Must be less than
+	// 1000 characters. (required)
+	Prompt string
+}
+
+// CreateImageEdits creates an edited or extended image given an original image
+// and a prompt.
+func (o *openAI) CreateImageEdits(req CreateImageEditsReq) (*ImageResponse, error) {
+	resp := &ImageResponse{}
+	params := map[string]string{}
+	params["prompt"] = req.Prompt
+	if req.N != nil {
+		params["n"] = strconv.Itoa(*req.N)
+	}
+	if req.Size != "" {
+		params["size"] = string(req.Size)
+	}
+	if req.ResponseFormat != "" {
+		params["response_format"] = string(req.ResponseFormat)
+	}
+	if req.User != "" {
+		params["user"] = req.User
+	}
+	files := map[string]string{"image": req.Image}
+	if req.Mask != "" {
+		files["mask"] = req.Mask
+	}
+	err := o.makeMultiPartRequest(createImageEditsPath, params, files, resp)
+	if err != nil {
+		return nil, err
+	}
+	return resp, nil
+}

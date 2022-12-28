@@ -15,20 +15,18 @@ import (
 )
 
 const (
-	openaiGoVersion          = "0.1.0"
-	basePath                 = "https://api.openai.com"
-	versionPath              = "v1"
-	imagesPath               = "images"
-	CreateImagePath          = "generations"
-	CreateImageVariationPath = "variations"
+	openaiGoVersion = "0.1.0"
+	basePath        = "https://api.openai.com"
+	versionPath     = "v1"
 )
 
 var userAgent = fmt.Sprintf("openai-go/%v (%v; %v)", openaiGoVersion, runtime.Version(), runtime.GOOS)
 
-var createImagePath = fmt.Sprintf("%v/%v/%v/%v",
-	basePath, versionPath, imagesPath, CreateImagePath) //"https://api.openai.com/v1/images/generations"
-var createImageVariationsPath = fmt.Sprintf("%v/%v/%v/%v",
-	basePath, versionPath, imagesPath, CreateImageVariationPath)
+var imagesPath = fmt.Sprintf("%v/%v/images", basePath, versionPath)
+
+var createImagePath = imagesPath + "/generations" //"https://api.openai.com/v1/images/generations"
+var createImageVariationsPath = imagesPath + "/variations"
+var createImageEditsPath = imagesPath + "/edits"
 
 // HttpClient is the interface for the http client to use to make requests to
 // the OpenAI API
@@ -42,6 +40,8 @@ type OpenAI interface {
 	CreateImage(req CreateImageReq) (*ImageResponse, error)
 	// CreateImageVariations generates image variations
 	CreateImageVariations(req CreateImageVariationsReq) (*ImageResponse, error)
+	// CreateImageEdits generates image edits
+	CreateImageEdits(req CreateImageEditsReq) (*ImageResponse, error)
 }
 
 type openAI struct {
