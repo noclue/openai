@@ -2,7 +2,7 @@ package openai
 
 import (
 	"errors"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"strings"
 	"testing"
@@ -50,7 +50,7 @@ func TestCheckErrResponse(t *testing.T) {
 			Header: http.Header{
 				"Content-Type": []string{"application/json"},
 			},
-			Body: ioutil.NopCloser(strings.NewReader(`{
+			Body: io.NopCloser(strings.NewReader(`{
 				"error": {
 					"code": "invalid_api_key",
 					"message": "Incorrect API key provided...",
@@ -60,7 +60,7 @@ func TestCheckErrResponse(t *testing.T) {
 			}`)),
 		}
 		err := checkErrResponse(resp)
-		var openAPIErr *OpenAIAPIErrorDetails
+		var openAPIErr *APIError
 		if ok := errors.As(err, &openAPIErr); !ok {
 			t.Errorf("expected OpenAI error error but got: %#v", err)
 		}
@@ -72,7 +72,7 @@ func TestCheckErrResponse(t *testing.T) {
 			Header: http.Header{
 				"Content-Type": []string{"application/json"},
 			},
-			Body: ioutil.NopCloser(strings.NewReader(`{
+			Body: io.NopCloser(strings.NewReader(`{
 				"error": {
 					"code": "invalid_api_key",
 					"param": null,

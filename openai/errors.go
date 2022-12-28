@@ -4,29 +4,29 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"io/ioutil"
+	"io"
 	"net/http"
 )
 
 // ErrDecodingResponse is the error returned when the response cannot be decoded
 var ErrDecodingResponse = errors.New("openai: cannot decode error response")
 
-// OpenAIAPIErrorDetails is the error returned from the OpenAI API
-type OpenAIAPIErrorDetails struct {
-	Code    string `json:"code"`
+// APIError is the error returned from the OpenAI API
+type APIError struct {
+	Code    any    `json:"code"`
 	Message string `json:"message"`
-	Details string `json:"details"`
+	Details string `json:"param"`
 	Type    string `json:"type"`
 }
 
 // Error returns the error message
-func (e *OpenAIAPIErrorDetails) Error() string {
+func (e *APIError) Error() string {
 	return "openai: API error:" + e.Message
 }
 
 // openAIAPIError represents the JSON payload returned from the OpenAI API
 type openAIAPIError struct {
-	Error *OpenAIAPIErrorDetails `json:"error"`
+	Error *APIError `json:"error"`
 }
 
 // checkErrResponse unmarshals the http response body into an error.
@@ -38,7 +38,7 @@ func checkErrResponse(resp *http.Response) error {
 		return err
 	}
 	defer resp.Body.Close()
-	body, err := ioutil.ReadAll(resp.Body)
+	body, err := io.ReadAll(resp.Body)
 	if err != nil {
 		return fmt.Errorf("openai: HTTP error response read error: %w", err)
 	}

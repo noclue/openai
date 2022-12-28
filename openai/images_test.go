@@ -2,12 +2,12 @@ package openai_test
 
 import (
 	"errors"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"strings"
 	"testing"
 
-	"github.com/noclue/openai-experiments/openai"
+	"github.com/noclue/openai/openai"
 )
 
 const (
@@ -27,6 +27,14 @@ const (
 		    "type": "invalid_request_error"
 		}
 	}`
+	// errNTooBig = `{
+	// 	"error": {
+	// 	  "code": null,
+	// 	  "message": "15 is greater than the maximum of 10 - 'n'",
+	// 	  "param": null,
+	// 	  "type": "invalid_request_error"
+	// 	}
+	//   }`
 	apiKey = "sk-12345"
 )
 
@@ -42,7 +50,7 @@ func TestCreateImage(t *testing.T) {
 	var httpClient = &mockHttpClient{
 		response: &http.Response{
 			StatusCode: http.StatusOK,
-			Body:       ioutil.NopCloser(strings.NewReader(successResponse)),
+			Body:       io.NopCloser(strings.NewReader(successResponse)),
 			Header: http.Header{
 				"Content-Type": []string{"application/json"},
 			},
@@ -66,7 +74,7 @@ func TestCreateImageError(t *testing.T) {
 	var httpClient = &mockHttpClient{
 		response: &http.Response{
 			StatusCode: http.StatusBadRequest,
-			Body:       ioutil.NopCloser(strings.NewReader(errInvalidToken)),
+			Body:       io.NopCloser(strings.NewReader(errInvalidToken)),
 			Header: http.Header{
 				"Content-Type": []string{"application/json"},
 			},
@@ -81,7 +89,7 @@ func TestCreateImageError(t *testing.T) {
 	if e == nil {
 		t.Errorf("Expected error, got nil")
 	}
-	var openAIError *openai.OpenAIAPIErrorDetails
+	var openAIError *openai.APIError
 	if !errors.As(e, &openAIError) {
 		t.Fatal("Expected OpenAI Error")
 	}
