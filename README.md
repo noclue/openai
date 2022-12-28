@@ -1,39 +1,43 @@
 # openai
 
-Welcome to the openai project! This project uses the OpenAI API to generate images based on creative prompts. The code for this project was largely written by AI using GitHub Copilot and ChatGPT.
+A Go client bindings library and CLI for the OpenAI API.
 
-## Getting Started
+## Features
 
-To get started, follow the instructions in the [OpenAI API guide](https://beta.openai.com/docs/quickstart) to obtain an API key and set it in the `OPENAI_API_KEY` environment variable. Then, clone this repository.
+* Image API support for generating images, variations, and edits
+* Uses the remote OpenAI API
 
-Run the following command to generate an image based on a creative prompt:
+## Requirements
 
-```
+* Go 1.18 or newer
+* spf13 cobra library
+* `OPENAI_API_KEY`: To get an API key, follow these steps:
+    * Go to the OpenAI website (https://openai.com/) and click on the "Sign Up" button in the top right corner of the page.
+    * Fill out the sign up form with your name, email address, and password, and click the "Sign Up" button.
+    * You will receive a confirmation email. Click on the link in the email to confirm your account.
+    * Once you have confirmed your account, log in to the OpenAI website.
+    * In the top right corner of the page, click on your user name, then select "API Key" from the dropdown menu.
+    * Click the "Generate API Key" button.
+    * Your API key will be displayed on the page. Copy the API key and use it as the value for the `OPENAI_API_KEY` environment variable.
+
+## Examples
+
+Create an image:
+
+```bash
 go run cmd/openai/openai.go help image image create "Pretty woman walking down the street."
 ```
-
-This will generate an image based on the provided prompt.
-
-To generate image variations, run the following command:
+Create image variations:
 
 ```bash
-$ go run cmd/openai/openai.go image variations openai/testdata/image.png -n 2
+go run cmd/openai/openai.go image variations openai/testdata/image.png -n 2
 ```
-
-To make image edits, run the following command:
+Create image edits:
 
 ```bash
-$ go run cmd/openai/openai.go image edits openai/testdata/image.png "A winter forest with a winding path." -m openai/testdata/mask.png -n 2
+go run cmd/openai/openai.go image edits openai/testdata/image.png "A winter forest with a winding path." -m openai/testdata/mask.png -n 2
 ```
-
-## Dependencies
-
-This project depends on the OpenAI API.
-
-## Contributing
-
-We welcome contributions to this project. If you have an idea for a new feature or improvement, please open an issue or submit a pull request.
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more information.
+This project is licensed under the MIT License - see the LICENSE file for details.
