@@ -8,6 +8,8 @@ Some of the things you can do with the CLI include:
 * Create variations of images
 * Edit images with specified masks and prompt
 
+This README and the source code for this project were created with the help of GitHub Copilot and an AI language model trained by OpenAI.
+
 ## Features
 
 * Image API support for generating images, variations, and edits
