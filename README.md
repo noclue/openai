@@ -13,10 +13,7 @@ This will generate a response based on the provided prompt.
 
 ## Dependencies
 
-This project depends on the following packages:
-
-- GitHub Copilot
-- ChatGPT
+This project depends on the OpenAI HTTP API. No external Go packages are required.
 
 ## Contributing
 
