@@ -22,7 +22,7 @@ const (
 	errInvalidToken = `{
 		"error": {
 			"code": "invalid_api_key",
-			"message": "Incorrect API key provided: sk-(fail*********************************************lEB3. You can find your API key at https://beta.openai.com.",
+			"message": "Incorrect API key provided...",
 			"param": null,
 		    "type": "invalid_request_error"
 		}

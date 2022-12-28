@@ -48,6 +48,9 @@ type CreateImageReq struct {
 	User           string         `json:"user,omitempty"`
 }
 
+// CreateImageRespData is the image data. If ResponseFormat is url, this is the
+// url to the image. If ResponseFormat is b64_json, this is the base64 encoded
+// image data.
 type CreateImageRespData struct {
 	// URL is the url to the image. Only present if ResponseFormat is url.
 	URL string `json:"url,omitempty"`
@@ -93,7 +96,7 @@ func (o *openAI) CreateImage(req CreateImageReq) (*CreateImageResp, error) {
 	}
 	defer httpResp.Body.Close()
 	// TODO: check 204 No Content, 202 Accepted etc.
-	if err = checkContentType(httpResp); err != nil {
+	if err = checkJSONContentType(httpResp); err != nil {
 		return nil, err
 	}
 	responseBody, err := ioutil.ReadAll(httpResp.Body)

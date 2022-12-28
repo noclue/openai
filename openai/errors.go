@@ -34,7 +34,7 @@ func checkErrResponse(resp *http.Response) error {
 	if resp.StatusCode >= http.StatusOK && resp.StatusCode < 300 {
 		return nil
 	}
-	if err := checkContentType(resp); err != nil {
+	if err := checkJSONContentType(resp); err != nil {
 		return err
 	}
 	defer resp.Body.Close()
@@ -50,12 +50,4 @@ func checkErrResponse(resp *http.Response) error {
 	}
 
 	return fmt.Errorf("openai: cannot read error response with status code: %v. %w", resp.StatusCode, ErrDecodingResponse)
-}
-
-func checkContentType(resp *http.Response) error {
-	contentType := resp.Header.Get("content-type")
-	if contentType != "application/json" {
-		return fmt.Errorf("openai: expected JSON payload but received %s", contentType)
-	}
-	return nil
 }
