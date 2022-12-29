@@ -41,6 +41,8 @@ type OpenAI interface {
 	CreateCompletion(ctx context.Context, req CompletionsRequest) (*CompletionsResponse, error)
 	// Edit creates an edit
 	Edit(ctx context.Context, req EditRequest) (*EditResponse, error)
+	// Models returns the list of models available to the user from the OpenAI API
+	Models(ctx context.Context) (*ModelsResponse, error)
 }
 
 type openAI struct {
@@ -78,13 +80,11 @@ func (o *openAI) makeJSONRequest(ctx context.Context, uri string, req any, resp 
 		return fmt.Errorf("openai: JSON encoding error: %w", err)
 	}
 	body := bytes.NewBuffer(bodyBytes)
-	httpReq, err := http.NewRequest("POST", uri, body)
+	httpReq, err := http.NewRequestWithContext(ctx, "POST", uri, body)
 	if err != nil {
 		return fmt.Errorf("openai: HTTP request creation error: %w", err)
 	}
-	if ctx != nil {
-		httpReq = httpReq.WithContext(ctx)
-	}
+
 	httpReq.Header.Set("Content-Type", "application/json")
 	return o.makeHttpRequest(httpReq, resp)
 }
@@ -116,12 +116,9 @@ func (o *openAI) makeMultiPartRequest(ctx context.Context, uri string, fields ma
 	if err := writer.Close(); err != nil {
 		return fmt.Errorf("openai: multipart form closing error: %w", err)
 	}
-	httpReq, err := http.NewRequest("POST", uri, body)
+	httpReq, err := http.NewRequestWithContext(ctx, "POST", uri, body)
 	if err != nil {
 		return fmt.Errorf("openai: HTTP request creation error: %w", err)
-	}
-	if ctx != nil {
-		httpReq = httpReq.WithContext(ctx)
 	}
 	httpReq.Header.Set("Content-Type", writer.FormDataContentType())
 	return o.makeHttpRequest(httpReq, resp)
