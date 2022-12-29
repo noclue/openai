@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/noclue/openai/openai"
+	"github.com/noclue/openai"
 	"github.com/spf13/cobra"
 )
 

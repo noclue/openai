@@ -8,7 +8,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/noclue/openai/openai"
+	"github.com/noclue/openai"
 )
 
 const (
