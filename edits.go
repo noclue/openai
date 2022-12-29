@@ -44,10 +44,10 @@ type EditResponse struct {
 // Edit creates an edit. Given a prompt and an instruction, the model
 // will return an edited version of the prompt.
 func (c *openAI) Edit(ctx context.Context, req EditRequest) (*EditResponse, error) {
-	var resp EditResponse
-	err := c.makeJSONRequest(ctx, createEditPath, req, &resp)
+	var res EditResponse
+	err := c.makeJSONRequest(ctx, createEditPath, req, &res)
 	if err != nil {
 		return nil, err
 	}
-	return &resp, nil
+	return &res, nil
 }
