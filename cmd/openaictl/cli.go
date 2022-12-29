@@ -1,7 +1,11 @@
 package openaictl
 
 import (
+	"fmt"
+	"os"
+
 	"github.com/spf13/cobra"
+	"gopkg.in/yaml.v2"
 )
 
 // Flags
@@ -33,4 +37,14 @@ func Run() {
 
 	rootCmd.Execute()
 
+}
+
+// printResponse prints the response as yaml
+func printResponse(res any) {
+	y, err := yaml.Marshal(res)
+	if err != nil {
+		fmt.Printf("Error marshalling response to yaml: %+v", err)
+		os.Exit(1)
+	}
+	fmt.Println(string(y))
 }

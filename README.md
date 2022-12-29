@@ -38,11 +38,11 @@ go run cmd/openai.go help image image create "Pretty woman walking down the stre
 ```
 Create image variations:
 ```bash
-go run cmd/openai.go image variations openai/testdata/image.png -n 2
+go run cmd/openai.go image variations testdata/image.png -n 2
 ```
 Create image edits:
 ```bash
-go run cmd/openai.go image edits openai/testdata/image.png "A winter forest with a winding path." -m openai/testdata/mask.png -n 2
+go run cmd/openai.go image edits testdata/image.png "A winter forest with a winding path." -m testdata/mask.png -n 2
 ```
 Edit text:
 ```bash

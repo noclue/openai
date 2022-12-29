@@ -128,7 +128,7 @@ func createImage(prompt string, numImages int, size openai.ImageSize, responseFo
 		os.Exit(1)
 	}
 
-	fmt.Printf("Response: %+v", res)
+	printResponse(res)
 }
 
 // imageVariations creates variations of an image
@@ -153,7 +153,7 @@ func imageVariations(imageFile string, numImages int, size openai.ImageSize, res
 		os.Exit(1)
 	}
 
-	fmt.Printf("Response: %+v", res)
+	printResponse(res)
 }
 
 func imageEdits(imageFile string, prompt string, mask string, numImages int, size openai.ImageSize, responseFormat openai.ResponseFormat, user string) {
@@ -189,5 +189,5 @@ func imageEdits(imageFile string, prompt string, mask string, numImages int, siz
 		os.Exit(1)
 	}
 
-	fmt.Printf("Response: %+v", res)
+	printResponse(res)
 }

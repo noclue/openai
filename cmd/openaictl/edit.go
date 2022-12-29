@@ -7,7 +7,6 @@ import (
 
 	"github.com/noclue/openai"
 	"github.com/spf13/cobra"
-	"gopkg.in/yaml.v2"
 )
 
 func addEditCmd(rootCmd *cobra.Command) {
@@ -98,11 +97,6 @@ func edit(model, instructionFile, instruction, inputFile, input string, n int, t
 			os.Exit(1)
 		}
 	} else {
-		yaml, err := yaml.Marshal(res)
-		if err != nil {
-			fmt.Printf("Error marshalling response to yaml: %s", err)
-			os.Exit(1)
-		}
-		fmt.Println(string(yaml))
+		printResponse(res)
 	}
 }
