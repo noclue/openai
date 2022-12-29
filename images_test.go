@@ -1,13 +1,14 @@
 package openai_test
 
 import (
+	"context"
 	"errors"
 	"io"
 	"net/http"
 	"strings"
 	"testing"
 
-	"github.com/noclue/openai/openai"
+	"github.com/noclue/openai"
 )
 
 const (
@@ -39,10 +40,14 @@ const (
 )
 
 type mockHttpClient struct {
-	response *http.Response
+	response         *http.Response
+	requestValidator func(*http.Request)
 }
 
 func (m *mockHttpClient) Do(req *http.Request) (*http.Response, error) {
+	if m.requestValidator != nil {
+		m.requestValidator(req)
+	}
 	return m.response, nil
 }
 
@@ -55,10 +60,24 @@ func TestCreateImage(t *testing.T) {
 				"Content-Type": []string{"application/json"},
 			},
 		},
+		requestValidator: func(req *http.Request) {
+			if req.Method != http.MethodPost {
+				t.Errorf("Expected POST, got %s", req.Method)
+			}
+			if req.URL.Path != "/v1/images/generations" {
+				t.Errorf("Expected /v1/images/generations, got %s", req.URL.Path)
+			}
+			if req.Header.Get("Authorization") != "Bearer "+apiKey {
+				t.Errorf("Expected Bearer %s, got %s", apiKey, req.Header.Get("Authorization"))
+			}
+			if req.Header.Get("Content-Type") != "application/json" {
+				t.Errorf("Expected application/json, got %s", req.Header.Get("Content-Type"))
+			}
+		},
 	}
 	// Create a new OpenAI struct
 	o := openai.NewOpenAI(apiKey, openai.WithHttpClient(httpClient))
-	res, e := o.CreateImage(openai.CreateImageReq{
+	res, e := o.CreateImage(context.Background(), openai.CreateImageReq{
 		Prompt: "This is a test",
 	})
 	if e != nil {
@@ -83,7 +102,7 @@ func TestCreateImageError(t *testing.T) {
 	// Create a new OpenAI struct
 	o := openai.NewOpenAI(apiKey, openai.WithHttpClient(httpClient))
 
-	_, e := o.CreateImage(openai.CreateImageReq{
+	_, e := o.CreateImage(context.Background(), openai.CreateImageReq{
 		Prompt: "This is a test",
 	})
 	if e == nil {

@@ -1,0 +1,1 @@
+Add notes for support of `edits` and `completions` in the first section of the README.md of an open source openai bindings and cli project.

@@ -30,7 +30,7 @@ func TestCheckErrResponse(t *testing.T) {
 			t.Error("expected error but got nil")
 		}
 	})
-	t.Run("text/plain content-type returns simple error", func(t *testing.T) {
+	t.Run("text content-type returns simple error", func(t *testing.T) {
 		t.Parallel()
 		resp := &http.Response{
 			StatusCode: 400,
@@ -43,7 +43,7 @@ func TestCheckErrResponse(t *testing.T) {
 			t.Error("expected error but got nil")
 		}
 	})
-	t.Run("application/json content-type and openAI error json return OpenAIAPIErrorDetails error", func(t *testing.T) {
+	t.Run("json content-type and openAI error json return OpenAIAPIErrorDetails error", func(t *testing.T) {
 		t.Parallel()
 		resp := &http.Response{
 			StatusCode: 400,
@@ -65,7 +65,7 @@ func TestCheckErrResponse(t *testing.T) {
 			t.Errorf("expected OpenAI error error but got: %#v", err)
 		}
 	})
-	t.Run(`application/json content-type and openAI error json missing "message" returns ErrDecodingResponse error`, func(t *testing.T) {
+	t.Run(`json content-type and openAI error json missing "message" returns ErrDecodingResponse error`, func(t *testing.T) {
 		t.Parallel()
 		resp := &http.Response{
 			StatusCode: 400,
