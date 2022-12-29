@@ -34,19 +34,19 @@ This README and the source code for this project were created with the help of G
 
 Create an image:
 ```bash
-go run cmd/openai/openai.go help image image create "Pretty woman walking down the street."
+go run cmd/openai.go help image image create "Pretty woman walking down the street."
 ```
 Create image variations:
 ```bash
-go run cmd/openai/openai.go image variations openai/testdata/image.png -n 2
+go run cmd/openai.go image variations openai/testdata/image.png -n 2
 ```
 Create image edits:
 ```bash
-go run cmd/openai/openai.go image edits openai/testdata/image.png "A winter forest with a winding path." -m openai/testdata/mask.png -n 2
+go run cmd/openai.go image edits openai/testdata/image.png "A winter forest with a winding path." -m openai/testdata/mask.png -n 2
 ```
 Edit text:
 ```bash
-go run cmd/openai/openai.go edit text-davinci-edit-001 testdata/instruction.txt -i README.md
+go run cmd/openai.go edit -a "What day of thet wek is it?" -s "Fix the spelling mistakes"
 ```
 
 ## License

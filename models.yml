@@ -1,0 +1,1257 @@
+data:
+- id: babbage
+  object: model
+  created: 1649358449
+  ownedby: openai
+  permission:
+  - allow_create_engine: false
+    allow_fine_tuning: false
+    allow_logprobs: true
+    allow_sampling: true
+    allow_search_indices: false
+    allow_view: true
+    created: 1.669085501e+09
+    group: null
+    id: modelperm-49FUp5v084tBB49tC4z8LPH5
+    is_blocking: false
+    object: model_permission
+    organization: '*'
+  root: babbage
+  parent: ""
+- id: ada
+  object: model
+  created: 1649357491
+  ownedby: openai
+  permission:
+  - allow_create_engine: false
+    allow_fine_tuning: false
+    allow_logprobs: true
+    allow_sampling: true
+    allow_search_indices: false
+    allow_view: true
+    created: 1.669087301e+09
+    group: null
+    id: modelperm-xTOEYvDZGN7UDnQ65VpzRRHz
+    is_blocking: false
+    object: model_permission
+    organization: '*'
+  root: ada
+  parent: ""
+- id: text-davinci-002
+  object: model
+  created: 1649880484
+  ownedby: openai
+  permission:
+  - allow_create_engine: false
+    allow_fine_tuning: false
+    allow_logprobs: true
+    allow_sampling: true
+    allow_search_indices: false
+    allow_view: true
+    created: 1.672101208e+09
+    group: null
+    id: modelperm-M23IK2xopTJxHSm15M46ehWU
+    is_blocking: false
+    object: model_permission
+    organization: '*'
+  root: text-davinci-002
+  parent: ""
+- id: davinci
+  object: model
+  created: 1649359874
+  ownedby: openai
+  permission:
+  - allow_create_engine: false
+    allow_fine_tuning: false
+    allow_logprobs: true
+    allow_sampling: true
+    allow_search_indices: false
+    allow_view: true
+    created: 1.669066355e+09
+    group: null
+    id: modelperm-U6ZwlyAd0LyMk4rcMdz33Yc3
+    is_blocking: false
+    object: model_permission
+    organization: '*'
+  root: davinci
+  parent: ""
+- id: babbage-code-search-code
+  object: model
+  created: 1651172509
+  ownedby: openai-dev
+  permission:
+  - allow_create_engine: false
+    allow_fine_tuning: false
+    allow_logprobs: true
+    allow_sampling: true
+    allow_search_indices: true
+    allow_view: true
+    created: 1.669085863e+09
+    group: null
+    id: modelperm-4qRnA3Hj8HIJbgo0cGbcmErn
+    is_blocking: false
+    object: model_permission
+    organization: '*'
+  root: babbage-code-search-code
+  parent: ""
+- id: text-similarity-babbage-001
+  object: model
+  created: 1651172505
+  ownedby: openai-dev
+  permission:
+  - allow_create_engine: false
+    allow_fine_tuning: false
+    allow_logprobs: true
+    allow_sampling: true
+    allow_search_indices: true
+    allow_view: true
+    created: 1.669081947e+09
+    group: null
+    id: modelperm-48kcCHhfzvnfY84OtJf5m8Cz
+    is_blocking: false
+    object: model_permission
+    organization: '*'
+  root: text-similarity-babbage-001
+  parent: ""
+- id: text-davinci-003
+  object: model
+  created: 1669599635
+  ownedby: openai-internal
+  permission:
+  - allow_create_engine: false
+    allow_fine_tuning: false
+    allow_logprobs: true
+    allow_sampling: true
+    allow_search_indices: false
+    allow_view: true
+    created: 1.67191008e+09
+    group: null
+    id: modelperm-avGyoQNQYTDulwkeSa6n60ry
+    is_blocking: false
+    object: model_permission
+    organization: '*'
+  root: text-davinci-003
+  parent: ""
+- id: code-davinci-002
+  object: model
+  created: 1649880485
+  ownedby: openai
+  permission:
+  - allow_create_engine: false
+    allow_fine_tuning: false
+    allow_logprobs: true
+    allow_sampling: true
+    allow_search_indices: false
+    allow_view: true
+    created: 1.672101208e+09
+    group: null
+    id: modelperm-corXK4MkV0WIGh383a6rE0Qb
+    is_blocking: false
+    object: model_permission
+    organization: '*'
+  root: code-davinci-002
+  parent: ""
+- id: text-davinci-001
+  object: model
+  created: 1649364042
+  ownedby: openai
+  permission:
+  - allow_create_engine: false
+    allow_fine_tuning: false
+    allow_logprobs: true
+    allow_sampling: true
+    allow_search_indices: false
+    allow_view: true
+    created: 1.669066355e+09
+    group: null
+    id: modelperm-MVM5NfoRjXkDve3uQW3YZDDt
+    is_blocking: false
+    object: model_permission
+    organization: '*'
+  root: text-davinci-001
+  parent: ""
+- id: curie-instruct-beta
+  object: model
+  created: 1649364042
+  ownedby: openai
+  permission:
+  - allow_create_engine: false
+    allow_fine_tuning: false
+    allow_logprobs: true
+    allow_sampling: true
+    allow_search_indices: false
+    allow_view: true
+    created: 1.669070162e+09
+    group: null
+    id: modelperm-JlSyMbxXeFm42SDjN0wTD26Y
+    is_blocking: false
+    object: model_permission
+    organization: '*'
+  root: curie-instruct-beta
+  parent: ""
+- id: babbage-code-search-text
+  object: model
+  created: 1651172509
+  ownedby: openai-dev
+  permission:
+  - allow_create_engine: false
+    allow_fine_tuning: false
+    allow_logprobs: true
+    allow_sampling: true
+    allow_search_indices: true
+    allow_view: true
+    created: 1.669085863e+09
+    group: null
+    id: modelperm-Lftf8H4ZPDxNxVs0hHPJBUoe
+    is_blocking: false
+    object: model_permission
+    organization: '*'
+  root: babbage-code-search-text
+  parent: ""
+- id: babbage-similarity
+  object: model
+  created: 1651172505
+  ownedby: openai-dev
+  permission:
+  - allow_create_engine: false
+    allow_fine_tuning: false
+    allow_logprobs: true
+    allow_sampling: true
+    allow_search_indices: true
+    allow_view: true
+    created: 1.669081947e+09
+    group: null
+    id: modelperm-mS20lnPqhebTaFPrcCufyg7m
+    is_blocking: false
+    object: model_permission
+    organization: '*'
+  root: babbage-similarity
+  parent: ""
+- id: curie-search-query
+  object: model
+  created: 1651172509
+  ownedby: openai-dev
+  permission:
+  - allow_create_engine: false
+    allow_fine_tuning: false
+    allow_logprobs: true
+    allow_sampling: true
+    allow_search_indices: true
+    allow_view: true
+    created: 1.669066354e+09
+    group: null
+    id: modelperm-O30H5MRAHribJNyy87ugfPWF
+    is_blocking: false
+    object: model_permission
+    organization: '*'
+  root: curie-search-query
+  parent: ""
+- id: code-search-babbage-text-001
+  object: model
+  created: 1651172507
+  ownedby: openai-dev
+  permission:
+  - allow_create_engine: false
+    allow_fine_tuning: false
+    allow_logprobs: true
+    allow_sampling: true
+    allow_search_indices: true
+    allow_view: true
+    created: 1.669085863e+09
+    group: null
+    id: modelperm-EC5ASz4NLChtEV1Cwkmrwm57
+    is_blocking: false
+    object: model_permission
+    organization: '*'
+  root: code-search-babbage-text-001
+  parent: ""
+- id: code-cushman-001
+  object: model
+  created: 1656081837
+  ownedby: openai
+  permission:
+  - allow_create_engine: false
+    allow_fine_tuning: false
+    allow_logprobs: true
+    allow_sampling: true
+    allow_search_indices: false
+    allow_view: true
+    created: 1.669066355e+09
+    group: null
+    id: modelperm-M6pwNXr8UmY3mqdUEe4VFXdY
+    is_blocking: false
+    object: model_permission
+    organization: '*'
+  root: code-cushman-001
+  parent: ""
+- id: code-search-babbage-code-001
+  object: model
+  created: 1651172507
+  ownedby: openai-dev
+  permission:
+  - allow_create_engine: false
+    allow_fine_tuning: false
+    allow_logprobs: true
+    allow_sampling: true
+    allow_search_indices: true
+    allow_view: true
+    created: 1.669085864e+09
+    group: null
+    id: modelperm-64LWHdlANgak2rHzc3K5Stt0
+    is_blocking: false
+    object: model_permission
+    organization: '*'
+  root: code-search-babbage-code-001
+  parent: ""
+- id: text-ada-001
+  object: model
+  created: 1649364042
+  ownedby: openai
+  permission:
+  - allow_create_engine: false
+    allow_fine_tuning: false
+    allow_logprobs: true
+    allow_sampling: true
+    allow_search_indices: false
+    allow_view: true
+    created: 1.669088497e+09
+    group: null
+    id: modelperm-KN5dRBCEW4az6gwcGXkRkMwK
+    is_blocking: false
+    object: model_permission
+    organization: '*'
+  root: text-ada-001
+  parent: ""
+- id: text-similarity-ada-001
+  object: model
+  created: 1651172505
+  ownedby: openai-dev
+  permission:
+  - allow_create_engine: false
+    allow_fine_tuning: false
+    allow_logprobs: true
+    allow_sampling: true
+    allow_search_indices: true
+    allow_view: true
+    created: 1.669092759e+09
+    group: null
+    id: modelperm-DdCqkqmORpqxqdg4TkFRAgmw
+    is_blocking: false
+    object: model_permission
+    organization: '*'
+  root: text-similarity-ada-001
+  parent: ""
+- id: text-davinci-insert-002
+  object: model
+  created: 1649880484
+  ownedby: openai
+  permission:
+  - allow_create_engine: false
+    allow_fine_tuning: false
+    allow_logprobs: true
+    allow_sampling: true
+    allow_search_indices: false
+    allow_view: true
+    created: 1.669066354e+09
+    group: null
+    id: modelperm-V5YQoSyiapAf4km5wisXkNXh
+    is_blocking: false
+    object: model_permission
+    organization: '*'
+  root: text-davinci-insert-002
+  parent: ""
+- id: text-embedding-ada-002
+  object: model
+  created: 1671217299
+  ownedby: openai-internal
+  permission:
+  - allow_create_engine: false
+    allow_fine_tuning: false
+    allow_logprobs: true
+    allow_sampling: true
+    allow_search_indices: true
+    allow_view: true
+    created: 1.671218202e+09
+    group: null
+    id: modelperm-TCu0O3OCbgIeY3lDSEezgqFb
+    is_blocking: false
+    object: model_permission
+    organization: '*'
+  root: text-embedding-ada-002
+  parent: ""
+- id: ada-code-search-code
+  object: model
+  created: 1651172505
+  ownedby: openai-dev
+  permission:
+  - allow_create_engine: false
+    allow_fine_tuning: false
+    allow_logprobs: true
+    allow_sampling: true
+    allow_search_indices: true
+    allow_view: true
+    created: 1.669087421e+09
+    group: null
+    id: modelperm-wa8tg4Pi9QQNaWdjMTM8dkkx
+    is_blocking: false
+    object: model_permission
+    organization: '*'
+  root: ada-code-search-code
+  parent: ""
+- id: ada-similarity
+  object: model
+  created: 1651172507
+  ownedby: openai-dev
+  permission:
+  - allow_create_engine: false
+    allow_fine_tuning: false
+    allow_logprobs: true
+    allow_sampling: true
+    allow_search_indices: true
+    allow_view: true
+    created: 1.669092759e+09
+    group: null
+    id: modelperm-LtSIwCEReeDcvGTmM13gv6Fg
+    is_blocking: false
+    object: model_permission
+    organization: '*'
+  root: ada-similarity
+  parent: ""
+- id: code-search-ada-text-001
+  object: model
+  created: 1651172507
+  ownedby: openai-dev
+  permission:
+  - allow_create_engine: false
+    allow_fine_tuning: false
+    allow_logprobs: true
+    allow_sampling: true
+    allow_search_indices: true
+    allow_view: true
+    created: 1.669087421e+09
+    group: null
+    id: modelperm-JBssaJSmbgvJfTkX71y71k2J
+    is_blocking: false
+    object: model_permission
+    organization: '*'
+  root: code-search-ada-text-001
+  parent: ""
+- id: text-search-ada-query-001
+  object: model
+  created: 1651172505
+  ownedby: openai-dev
+  permission:
+  - allow_create_engine: false
+    allow_fine_tuning: false
+    allow_logprobs: true
+    allow_sampling: true
+    allow_search_indices: true
+    allow_view: true
+    created: 1.66909264e+09
+    group: null
+    id: modelperm-1YiiBMYC8it0mpQCBK7t8uSP
+    is_blocking: false
+    object: model_permission
+    organization: '*'
+  root: text-search-ada-query-001
+  parent: ""
+- id: text-curie-001
+  object: model
+  created: 1649364043
+  ownedby: openai
+  permission:
+  - allow_create_engine: false
+    allow_fine_tuning: false
+    allow_logprobs: true
+    allow_sampling: true
+    allow_search_indices: false
+    allow_view: true
+    created: 1.669066352e+09
+    group: null
+    id: modelperm-fGAoEKBH01KNZ3zz81Sro34Q
+    is_blocking: false
+    object: model_permission
+    organization: '*'
+  root: text-curie-001
+  parent: ""
+- id: text-davinci-edit-001
+  object: model
+  created: 1649809179
+  ownedby: openai
+  permission:
+  - allow_create_engine: false
+    allow_fine_tuning: false
+    allow_logprobs: true
+    allow_sampling: true
+    allow_search_indices: false
+    allow_view: true
+    created: 1.669066354e+09
+    group: null
+    id: modelperm-VzNMGrIRm3HxhEl64gkjZdEh
+    is_blocking: false
+    object: model_permission
+    organization: '*'
+  root: text-davinci-edit-001
+  parent: ""
+- id: davinci-search-document
+  object: model
+  created: 1651172509
+  ownedby: openai-dev
+  permission:
+  - allow_create_engine: false
+    allow_fine_tuning: false
+    allow_logprobs: true
+    allow_sampling: true
+    allow_search_indices: true
+    allow_view: true
+    created: 1.669066355e+09
+    group: null
+    id: modelperm-M43LVJQRGxz6ode34ctLrCaG
+    is_blocking: false
+    object: model_permission
+    organization: '*'
+  root: davinci-search-document
+  parent: ""
+- id: ada-code-search-text
+  object: model
+  created: 1651172510
+  ownedby: openai-dev
+  permission:
+  - allow_create_engine: false
+    allow_fine_tuning: false
+    allow_logprobs: true
+    allow_sampling: true
+    allow_search_indices: true
+    allow_view: true
+    created: 1.669087421e+09
+    group: null
+    id: modelperm-kFc17wOI4d1FjZEaCqnk4Frg
+    is_blocking: false
+    object: model_permission
+    organization: '*'
+  root: ada-code-search-text
+  parent: ""
+- id: text-search-ada-doc-001
+  object: model
+  created: 1651172507
+  ownedby: openai-dev
+  permission:
+  - allow_create_engine: false
+    allow_fine_tuning: false
+    allow_logprobs: true
+    allow_sampling: true
+    allow_search_indices: true
+    allow_view: true
+    created: 1.66909264e+09
+    group: null
+    id: modelperm-kbHvYouDlkD78ehcmMOGdKpK
+    is_blocking: false
+    object: model_permission
+    organization: '*'
+  root: text-search-ada-doc-001
+  parent: ""
+- id: code-davinci-edit-001
+  object: model
+  created: 1649880484
+  ownedby: openai
+  permission:
+  - allow_create_engine: false
+    allow_fine_tuning: false
+    allow_logprobs: true
+    allow_sampling: true
+    allow_search_indices: false
+    allow_view: true
+    created: 1.669066354e+09
+    group: null
+    id: modelperm-WwansDxcKNvZtKugNqJnsvfv
+    is_blocking: false
+    object: model_permission
+    organization: '*'
+  root: code-davinci-edit-001
+  parent: ""
+- id: davinci-instruct-beta
+  object: model
+  created: 1649364042
+  ownedby: openai
+  permission:
+  - allow_create_engine: false
+    allow_fine_tuning: false
+    allow_logprobs: true
+    allow_sampling: true
+    allow_search_indices: false
+    allow_view: true
+    created: 1.669066356e+09
+    group: null
+    id: modelperm-k9kuMYlfd9nvFiJV2ug0NWws
+    is_blocking: false
+    object: model_permission
+    organization: '*'
+  root: davinci-instruct-beta
+  parent: ""
+- id: text-babbage-001
+  object: model
+  created: 1649364043
+  ownedby: openai
+  permission:
+  - allow_create_engine: false
+    allow_fine_tuning: false
+    allow_logprobs: true
+    allow_sampling: true
+    allow_search_indices: false
+    allow_view: true
+    created: 1.669086409e+09
+    group: null
+    id: modelperm-hAf2iBGMqLmqB9HZiwrp1gL7
+    is_blocking: false
+    object: model_permission
+    organization: '*'
+  root: text-babbage-001
+  parent: ""
+- id: text-similarity-curie-001
+  object: model
+  created: 1651172507
+  ownedby: openai-dev
+  permission:
+  - allow_create_engine: false
+    allow_fine_tuning: false
+    allow_logprobs: true
+    allow_sampling: true
+    allow_search_indices: true
+    allow_view: true
+    created: 1.669079883e+09
+    group: null
+    id: modelperm-6dgTTyXrZE7d53Licw4hYkvd
+    is_blocking: false
+    object: model_permission
+    organization: '*'
+  root: text-similarity-curie-001
+  parent: ""
+- id: code-search-ada-code-001
+  object: model
+  created: 1651172507
+  ownedby: openai-dev
+  permission:
+  - allow_create_engine: false
+    allow_fine_tuning: false
+    allow_logprobs: true
+    allow_sampling: true
+    allow_search_indices: true
+    allow_view: true
+    created: 1.669087421e+09
+    group: null
+    id: modelperm-8soch45iiGvux5Fg1ORjdC4s
+    is_blocking: false
+    object: model_permission
+    organization: '*'
+  root: code-search-ada-code-001
+  parent: ""
+- id: ada-search-query
+  object: model
+  created: 1651172505
+  ownedby: openai-dev
+  permission:
+  - allow_create_engine: false
+    allow_fine_tuning: false
+    allow_logprobs: true
+    allow_sampling: true
+    allow_search_indices: true
+    allow_view: true
+    created: 1.66909264e+09
+    group: null
+    id: modelperm-b753xmIzAUkluQ1L20eDZLtQ
+    is_blocking: false
+    object: model_permission
+    organization: '*'
+  root: ada-search-query
+  parent: ""
+- id: text-search-davinci-query-001
+  object: model
+  created: 1651172505
+  ownedby: openai-dev
+  permission:
+  - allow_create_engine: false
+    allow_fine_tuning: false
+    allow_logprobs: true
+    allow_sampling: true
+    allow_search_indices: true
+    allow_view: true
+    created: 1.669066353e+09
+    group: null
+    id: modelperm-9McKbsEYSaDshU9M3bp6ejUb
+    is_blocking: false
+    object: model_permission
+    organization: '*'
+  root: text-search-davinci-query-001
+  parent: ""
+- id: curie-similarity
+  object: model
+  created: 1651172510
+  ownedby: openai-dev
+  permission:
+  - allow_create_engine: false
+    allow_fine_tuning: false
+    allow_logprobs: true
+    allow_sampling: true
+    allow_search_indices: true
+    allow_view: true
+    created: 1.669079884e+09
+    group: null
+    id: modelperm-z9GtwMD6HcxKqvsPfDm0PSg6
+    is_blocking: false
+    object: model_permission
+    organization: '*'
+  root: curie-similarity
+  parent: ""
+- id: davinci-search-query
+  object: model
+  created: 1651172505
+  ownedby: openai-dev
+  permission:
+  - allow_create_engine: false
+    allow_fine_tuning: false
+    allow_logprobs: true
+    allow_sampling: true
+    allow_search_indices: true
+    allow_view: true
+    created: 1.669066353e+09
+    group: null
+    id: modelperm-lYkiTZMmJMWm8jvkPx2duyHE
+    is_blocking: false
+    object: model_permission
+    organization: '*'
+  root: davinci-search-query
+  parent: ""
+- id: text-davinci-insert-001
+  object: model
+  created: 1649880484
+  ownedby: openai
+  permission:
+  - allow_create_engine: false
+    allow_fine_tuning: false
+    allow_logprobs: true
+    allow_sampling: true
+    allow_search_indices: false
+    allow_view: true
+    created: 1.669066354e+09
+    group: null
+    id: modelperm-3gRQMBOMoccZIURE3ZxboZWA
+    is_blocking: false
+    object: model_permission
+    organization: '*'
+  root: text-davinci-insert-001
+  parent: ""
+- id: babbage-search-document
+  object: model
+  created: 1651172510
+  ownedby: openai-dev
+  permission:
+  - allow_create_engine: false
+    allow_fine_tuning: false
+    allow_logprobs: true
+    allow_sampling: true
+    allow_search_indices: true
+    allow_view: true
+    created: 1.669084981e+09
+    group: null
+    id: modelperm-5qFV9kxCRGKIXpBEP75chmp7
+    is_blocking: false
+    object: model_permission
+    organization: '*'
+  root: babbage-search-document
+  parent: ""
+- id: ada-search-document
+  object: model
+  created: 1651172507
+  ownedby: openai-dev
+  permission:
+  - allow_create_engine: false
+    allow_fine_tuning: false
+    allow_logprobs: true
+    allow_sampling: true
+    allow_search_indices: true
+    allow_view: true
+    created: 1.66909264e+09
+    group: null
+    id: modelperm-8qUMuMAbo4EwedbGamV7e9hq
+    is_blocking: false
+    object: model_permission
+    organization: '*'
+  root: ada-search-document
+  parent: ""
+- id: curie
+  object: model
+  created: 1649359874
+  ownedby: openai
+  permission:
+  - allow_create_engine: false
+    allow_fine_tuning: false
+    allow_logprobs: true
+    allow_sampling: true
+    allow_search_indices: false
+    allow_view: true
+    created: 1.669080023e+09
+    group: null
+    id: modelperm-NvPNUvr0g9gAt3B6Uw4sZ2do
+    is_blocking: false
+    object: model_permission
+    organization: '*'
+  root: curie
+  parent: ""
+- id: text-search-babbage-doc-001
+  object: model
+  created: 1651172509
+  ownedby: openai-dev
+  permission:
+  - allow_create_engine: false
+    allow_fine_tuning: false
+    allow_logprobs: true
+    allow_sampling: true
+    allow_search_indices: true
+    allow_view: true
+    created: 1.669084981e+09
+    group: null
+    id: modelperm-ao2r26P2Th7nhRFleHwy2gn5
+    is_blocking: false
+    object: model_permission
+    organization: '*'
+  root: text-search-babbage-doc-001
+  parent: ""
+- id: text-search-curie-doc-001
+  object: model
+  created: 1651172509
+  ownedby: openai-dev
+  permission:
+  - allow_create_engine: false
+    allow_fine_tuning: false
+    allow_logprobs: true
+    allow_sampling: true
+    allow_search_indices: true
+    allow_view: true
+    created: 1.669066353e+09
+    group: null
+    id: modelperm-zjXVr8IzHdqV5Qtg5lgxS7Ci
+    is_blocking: false
+    object: model_permission
+    organization: '*'
+  root: text-search-curie-doc-001
+  parent: ""
+- id: text-search-curie-query-001
+  object: model
+  created: 1651172509
+  ownedby: openai-dev
+  permission:
+  - allow_create_engine: false
+    allow_fine_tuning: false
+    allow_logprobs: true
+    allow_sampling: true
+    allow_search_indices: true
+    allow_view: true
+    created: 1.669066357e+09
+    group: null
+    id: modelperm-a58jAWPMqgJQffbNus8is1EM
+    is_blocking: false
+    object: model_permission
+    organization: '*'
+  root: text-search-curie-query-001
+  parent: ""
+- id: babbage-search-query
+  object: model
+  created: 1651172509
+  ownedby: openai-dev
+  permission:
+  - allow_create_engine: false
+    allow_fine_tuning: false
+    allow_logprobs: true
+    allow_sampling: true
+    allow_search_indices: true
+    allow_view: true
+    created: 1.669084981e+09
+    group: null
+    id: modelperm-wSs1hMXDKsrcErlbN8HmzlLE
+    is_blocking: false
+    object: model_permission
+    organization: '*'
+  root: babbage-search-query
+  parent: ""
+- id: text-search-davinci-doc-001
+  object: model
+  created: 1651172505
+  ownedby: openai-dev
+  permission:
+  - allow_create_engine: false
+    allow_fine_tuning: false
+    allow_logprobs: true
+    allow_sampling: true
+    allow_search_indices: true
+    allow_view: true
+    created: 1.669066353e+09
+    group: null
+    id: modelperm-qhSf1j2MJMujcu3t7cHnF1DN
+    is_blocking: false
+    object: model_permission
+    organization: '*'
+  root: text-search-davinci-doc-001
+  parent: ""
+- id: text-search-babbage-query-001
+  object: model
+  created: 1651172509
+  ownedby: openai-dev
+  permission:
+  - allow_create_engine: false
+    allow_fine_tuning: false
+    allow_logprobs: true
+    allow_sampling: true
+    allow_search_indices: true
+    allow_view: true
+    created: 1.669084981e+09
+    group: null
+    id: modelperm-Kg70kkFxD93QQqsVe4Zw8vjc
+    is_blocking: false
+    object: model_permission
+    organization: '*'
+  root: text-search-babbage-query-001
+  parent: ""
+- id: curie-search-document
+  object: model
+  created: 1651172508
+  ownedby: openai-dev
+  permission:
+  - allow_create_engine: false
+    allow_fine_tuning: false
+    allow_logprobs: true
+    allow_sampling: true
+    allow_search_indices: true
+    allow_view: true
+    created: 1.669066353e+09
+    group: null
+    id: modelperm-1xwmXNDpvKlQj3erOEVKZVjO
+    is_blocking: false
+    object: model_permission
+    organization: '*'
+  root: curie-search-document
+  parent: ""
+- id: text-similarity-davinci-001
+  object: model
+  created: 1651172505
+  ownedby: openai-dev
+  permission:
+  - allow_create_engine: false
+    allow_fine_tuning: false
+    allow_logprobs: true
+    allow_sampling: true
+    allow_search_indices: true
+    allow_view: true
+    created: 1.669066356e+09
+    group: null
+    id: modelperm-OvmcfYoq5V9SF9xTYw1Oz6Ue
+    is_blocking: false
+    object: model_permission
+    organization: '*'
+  root: text-similarity-davinci-001
+  parent: ""
+- id: audio-transcribe-001
+  object: model
+  created: 1656447449
+  ownedby: openai
+  permission:
+  - allow_create_engine: false
+    allow_fine_tuning: false
+    allow_logprobs: true
+    allow_sampling: true
+    allow_search_indices: false
+    allow_view: true
+    created: 1.669066355e+09
+    group: null
+    id: modelperm-DEyvUa4t6g4mVL1AmmtB0SHO
+    is_blocking: false
+    object: model_permission
+    organization: '*'
+  root: audio-transcribe-001
+  parent: ""
+- id: davinci-similarity
+  object: model
+  created: 1651172509
+  ownedby: openai-dev
+  permission:
+  - allow_create_engine: false
+    allow_fine_tuning: false
+    allow_logprobs: true
+    allow_sampling: true
+    allow_search_indices: true
+    allow_view: true
+    created: 1.669066353e+09
+    group: null
+    id: modelperm-lYYgng3LM0Y97HvB5CDc8no2
+    is_blocking: false
+    object: model_permission
+    organization: '*'
+  root: davinci-similarity
+  parent: ""
+- id: cushman:2020-05-03
+  object: model
+  created: 1590625110
+  ownedby: system
+  permission:
+  - allow_create_engine: false
+    allow_fine_tuning: true
+    allow_logprobs: true
+    allow_sampling: true
+    allow_search_indices: false
+    allow_view: true
+    created: 1.590625111e+09
+    group: null
+    id: snapperm-FAup8P1KqclNlTsunLDRiesT
+    is_blocking: false
+    object: model_permission
+    organization: '*'
+  root: cushman:2020-05-03
+  parent: ""
+- id: ada:2020-05-03
+  object: model
+  created: 1607631625
+  ownedby: system
+  permission:
+  - allow_create_engine: false
+    allow_fine_tuning: false
+    allow_logprobs: true
+    allow_sampling: true
+    allow_search_indices: false
+    allow_view: true
+    created: 1.607631626e+09
+    group: null
+    id: snapperm-9TYofAqUs54vytKYL0IX91rX
+    is_blocking: false
+    object: model_permission
+    organization: '*'
+  root: ada:2020-05-03
+  parent: ""
+- id: babbage:2020-05-03
+  object: model
+  created: 1607632611
+  ownedby: system
+  permission:
+  - allow_create_engine: false
+    allow_fine_tuning: false
+    allow_logprobs: true
+    allow_sampling: true
+    allow_search_indices: false
+    allow_view: true
+    created: 1.607632613e+09
+    group: null
+    id: snapperm-jaLAcmyyNuaVmalCE1BGTGwf
+    is_blocking: false
+    object: model_permission
+    organization: '*'
+  root: babbage:2020-05-03
+  parent: ""
+- id: curie:2020-05-03
+  object: model
+  created: 1607632725
+  ownedby: system
+  permission:
+  - allow_create_engine: false
+    allow_fine_tuning: false
+    allow_logprobs: true
+    allow_sampling: true
+    allow_search_indices: false
+    allow_view: true
+    created: 1.607632727e+09
+    group: null
+    id: snapperm-bt6R8PWbB2SwK5evFo0ZxSs4
+    is_blocking: false
+    object: model_permission
+    organization: '*'
+  root: curie:2020-05-03
+  parent: ""
+- id: davinci:2020-05-03
+  object: model
+  created: 1607640163
+  ownedby: system
+  permission:
+  - allow_create_engine: false
+    allow_fine_tuning: false
+    allow_logprobs: true
+    allow_sampling: true
+    allow_search_indices: false
+    allow_view: true
+    created: 1.607640164e+09
+    group: null
+    id: snapperm-99cbfQTYDVeLkTYndX3UMpSr
+    is_blocking: false
+    object: model_permission
+    organization: '*'
+  root: davinci:2020-05-03
+  parent: ""
+- id: if-davinci-v2
+  object: model
+  created: 1610745990
+  ownedby: openai
+  permission:
+  - allow_create_engine: false
+    allow_fine_tuning: false
+    allow_logprobs: true
+    allow_sampling: true
+    allow_search_indices: false
+    allow_view: true
+    created: 1.610746036e+09
+    group: null
+    id: snapperm-58q0TdK2K4kMgL3MoHvGWMlH
+    is_blocking: false
+    object: model_permission
+    organization: '*'
+  root: if-davinci-v2
+  parent: ""
+- id: if-curie-v2
+  object: model
+  created: 1610745968
+  ownedby: openai
+  permission:
+  - allow_create_engine: false
+    allow_fine_tuning: false
+    allow_logprobs: true
+    allow_sampling: true
+    allow_search_indices: false
+    allow_view: true
+    created: 1.610746043e+09
+    group: null
+    id: snapperm-fwAseHVq6NGe6Ple6tKfzRSK
+    is_blocking: false
+    object: model_permission
+    organization: '*'
+  root: if-curie-v2
+  parent: ""
+- id: if-davinci:3.0.0
+  object: model
+  created: 1629420755
+  ownedby: openai
+  permission:
+  - allow_create_engine: false
+    allow_fine_tuning: true
+    allow_logprobs: true
+    allow_sampling: true
+    allow_search_indices: false
+    allow_view: true
+    created: 1.629421809e+09
+    group: null
+    id: snapperm-T53lssiyMWwiuJwhyO9ic53z
+    is_blocking: false
+    object: model_permission
+    organization: '*'
+  root: if-davinci:3.0.0
+  parent: ""
+- id: davinci-if:3.0.0
+  object: model
+  created: 1629498070
+  ownedby: openai
+  permission:
+  - allow_create_engine: false
+    allow_fine_tuning: true
+    allow_logprobs: true
+    allow_sampling: true
+    allow_search_indices: false
+    allow_view: true
+    created: 1.629498084e+09
+    group: null
+    id: snapperm-s6ZIAVMwlZwrLGGClTXqSK3Q
+    is_blocking: false
+    object: model_permission
+    organization: '*'
+  root: davinci-if:3.0.0
+  parent: ""
+- id: davinci-instruct-beta:2.0.0
+  object: model
+  created: 1629501914
+  ownedby: openai
+  permission:
+  - allow_create_engine: false
+    allow_fine_tuning: true
+    allow_logprobs: true
+    allow_sampling: true
+    allow_search_indices: false
+    allow_view: true
+    created: 1.629501939e+09
+    group: null
+    id: snapperm-c70U4TBfiOD839xptP5pJzyc
+    is_blocking: false
+    object: model_permission
+    organization: '*'
+  root: davinci-instruct-beta:2.0.0
+  parent: ""
+- id: text-ada:001
+  object: model
+  created: 1641949608
+  ownedby: system
+  permission:
+  - allow_create_engine: false
+    allow_fine_tuning: false
+    allow_logprobs: true
+    allow_sampling: true
+    allow_search_indices: false
+    allow_view: true
+    created: 1.64194961e+09
+    group: null
+    id: snapperm-d2PSnwFG1Yn9of6PvrrhkBcU
+    is_blocking: false
+    object: model_permission
+    organization: '*'
+  root: text-ada:001
+  parent: ""
+- id: text-davinci:001
+  object: model
+  created: 1641943966
+  ownedby: system
+  permission:
+  - allow_create_engine: false
+    allow_fine_tuning: false
+    allow_logprobs: true
+    allow_sampling: true
+    allow_search_indices: false
+    allow_view: true
+    created: 1.64194434e+09
+    group: null
+    id: snapperm-Fj1O3zkKXOQy6AkcfQXRKcWA
+    is_blocking: false
+    object: model_permission
+    organization: '*'
+  root: text-davinci:001
+  parent: ""
+- id: text-curie:001
+  object: model
+  created: 1641955047
+  ownedby: system
+  permission:
+  - allow_create_engine: false
+    allow_fine_tuning: false
+    allow_logprobs: true
+    allow_sampling: true
+    allow_search_indices: false
+    allow_view: true
+    created: 1.641955123e+09
+    group: null
+    id: snapperm-BI9TAT6SCj43JRsUb9CYadsz
+    is_blocking: false
+    object: model_permission
+    organization: '*'
+  root: text-curie:001
+  parent: ""
+- id: text-babbage:001
+  object: model
+  created: 1642018370
+  ownedby: openai
+  permission:
+  - allow_create_engine: false
+    allow_fine_tuning: false
+    allow_logprobs: true
+    allow_sampling: true
+    allow_search_indices: false
+    allow_view: true
+    created: 1.64201848e+09
+    group: null
+    id: snapperm-7oP3WFr9x7qf5xb3eZrVABAH
+    is_blocking: false
+    object: model_permission
+    organization: '*'
+  root: text-babbage:001
+  parent: ""
+object: list
+
