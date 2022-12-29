@@ -39,8 +39,8 @@ type OpenAI interface {
 	CreateImageEdits(ctx context.Context, req CreateImageEditsReq) (*ImageResponse, error)
 	// CreateCompletion creates a completion
 	CreateCompletion(ctx context.Context, req CompletionsRequest) (*CompletionsResponse, error)
-	// CreateEdit creates an edit
-	CreateEdit(ctx context.Context, req EditRequest) (*EditResponse, error)
+	// Edit creates an edit
+	Edit(ctx context.Context, req EditRequest) (*EditResponse, error)
 }
 
 type openAI struct {

@@ -4,9 +4,11 @@ Welcome to the Go client bindings library and CLI for the OpenAI API! With this 
 
 Some of the things you can do with the CLI include:
 
-* Generate images using the Image API
+* Complete expressions
+* Edit up images and texts
+* Generate images
+* Generate texts
 * Create variations of images
-* Edit images with specified masks and prompt
 
 This README and the source code for this project were created with the help of GitHub Copilot and an AI language model trained by OpenAI.
 
@@ -20,7 +22,7 @@ This README and the source code for this project were created with the help of G
 * Go 1.18 or newer
 * spf13 cobra library
 * `OPENAI_API_KEY`: To get an API key, follow these steps:
-    * Go to the OpenAI website (https://openai.com/) and click on the "Sign Up" button in the top right corner of the page.
+    * Go to the OpenAI website (https://openai.com/) and click on the "Sign Up" button in the top right corner of the page.       
     * Fill out the sign up form with your name, email address, and password, and click the "Sign Up" button.
     * You will receive a confirmation email. Click on the link in the email to confirm your account.
     * Once you have confirmed your account, log in to the OpenAI website.
@@ -31,19 +33,20 @@ This README and the source code for this project were created with the help of G
 ## Examples
 
 Create an image:
-
 ```bash
 go run cmd/openai/openai.go help image image create "Pretty woman walking down the street."
 ```
 Create image variations:
-
 ```bash
 go run cmd/openai/openai.go image variations openai/testdata/image.png -n 2
 ```
 Create image edits:
-
 ```bash
 go run cmd/openai/openai.go image edits openai/testdata/image.png "A winter forest with a winding path." -m openai/testdata/mask.png -n 2
+```
+Edit text:
+```bash
+go run cmd/openai/openai.go edit text-davinci-edit-001 testdata/instruction.txt -i README.md
 ```
 
 ## License

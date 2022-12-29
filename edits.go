@@ -41,9 +41,9 @@ type EditResponse struct {
 	Usage   Usage        `json:"usage"`
 }
 
-// CreateEdit creates an edit. Given a prompt and an instruction, the model
+// Edit creates an edit. Given a prompt and an instruction, the model
 // will return an edited version of the prompt.
-func (c *openAI) CreateEdit(ctx context.Context, req EditRequest) (*EditResponse, error) {
+func (c *openAI) Edit(ctx context.Context, req EditRequest) (*EditResponse, error) {
 	var resp EditResponse
 	err := c.makeJSONRequest(ctx, createEditPath, req, &resp)
 	if err != nil {

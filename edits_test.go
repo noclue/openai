@@ -85,7 +85,7 @@ func TestCreateEdit(t *testing.T) {
 		c := openai.NewOpenAI(apiKey, openai.WithHttpClient(httpClient))
 
 		// Create a new edit
-		edit, err := c.CreateEdit(context.Background(), editsSuccessRequest)
+		edit, err := c.Edit(context.Background(), editsSuccessRequest)
 		if err != nil {
 			t.Errorf("Expected nil, got %#v", err)
 		}
@@ -134,7 +134,7 @@ func TestCreateEdit(t *testing.T) {
 		c := openai.NewOpenAI(apiKey, openai.WithHttpClient(httpClient))
 
 		// Create a new edit
-		_, err := c.CreateEdit(context.Background(), editsSuccessRequest)
+		_, err := c.Edit(context.Background(), editsSuccessRequest)
 		if err == nil {
 			t.Errorf("Expected error, got nil")
 		}
