@@ -1,6 +1,7 @@
 package openai_test
 
 import (
+	"context"
 	"errors"
 	"io"
 	"net/http"
@@ -58,7 +59,7 @@ func TestCreateImage(t *testing.T) {
 	}
 	// Create a new OpenAI struct
 	o := openai.NewOpenAI(apiKey, openai.WithHttpClient(httpClient))
-	res, e := o.CreateImage(openai.CreateImageReq{
+	res, e := o.CreateImage(context.Background(), openai.CreateImageReq{
 		Prompt: "This is a test",
 	})
 	if e != nil {
@@ -83,7 +84,7 @@ func TestCreateImageError(t *testing.T) {
 	// Create a new OpenAI struct
 	o := openai.NewOpenAI(apiKey, openai.WithHttpClient(httpClient))
 
-	_, e := o.CreateImage(openai.CreateImageReq{
+	_, e := o.CreateImage(context.Background(), openai.CreateImageReq{
 		Prompt: "This is a test",
 	})
 	if e == nil {

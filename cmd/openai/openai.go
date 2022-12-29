@@ -1,6 +1,7 @@
 package main
 
 import (
+	"context"
 	"fmt"
 	"os"
 
@@ -116,7 +117,7 @@ func createImage(prompt string, numImages int, size openai.ImageSize, responseFo
 		os.Exit(1)
 	}
 	client := openai.NewOpenAI(os.Getenv("OPENAI_API_KEY"))
-	res, err := client.CreateImage(openai.CreateImageReq{
+	res, err := client.CreateImage(context.Background(), openai.CreateImageReq{
 		Prompt: prompt,
 		CommonImageReq: openai.CommonImageReq{
 			N:              &numImages,
@@ -141,7 +142,7 @@ func imageVariations(imageFile string, numImages int, size openai.ImageSize, res
 		os.Exit(1)
 	}
 	client := openai.NewOpenAI(os.Getenv("OPENAI_API_KEY"))
-	res, err := client.CreateImageVariations(openai.CreateImageVariationsReq{
+	res, err := client.CreateImageVariations(context.Background(), openai.CreateImageVariationsReq{
 		Image: imageFile,
 		CommonImageReq: openai.CommonImageReq{
 			N:              &numImages,
@@ -175,7 +176,7 @@ func imageEdits(imageFile string, prompt string, mask string, numImages int, siz
 		os.Exit(1)
 	}
 	client := openai.NewOpenAI(os.Getenv("OPENAI_API_KEY"))
-	res, err := client.CreateImageEdits(openai.CreateImageEditsReq{
+	res, err := client.CreateImageEdits(context.Background(), openai.CreateImageEditsReq{
 		Image:  imageFile,
 		Prompt: prompt,
 		Mask:   mask,

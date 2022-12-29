@@ -1,8 +1,16 @@
 package openai
 
 import (
+	"context"
+	"fmt"
 	"strconv"
 )
+
+var imagesPath = fmt.Sprintf("%v/%v/images", basePath, apiVersion)
+
+var createImagePath = imagesPath + "/generations" //"https://api.openai.com/v1/images/generations"
+var imageVariationsPath = imagesPath + "/variations"
+var createImageEditsPath = imagesPath + "/edits"
 
 // ResponseFormat is the format of the response. Can be url or b64_json
 type ResponseFormat string
@@ -76,9 +84,9 @@ type CreateImageReq struct {
 
 // CreateImage makes a request to the OpenAI API to generate an image from a
 // text prompt.
-func (o *openAI) CreateImage(req CreateImageReq) (*ImageResponse, error) {
+func (o *openAI) CreateImage(ctx context.Context, req CreateImageReq) (*ImageResponse, error) {
 	resp := &ImageResponse{}
-	err := o.makeJSONRequest(createImagePath, req, resp)
+	err := o.makeJSONRequest(ctx, createImagePath, req, resp)
 	if err != nil {
 		return nil, err
 	}
@@ -97,7 +105,7 @@ type CreateImageVariationsReq struct {
 
 // CreateImageVariations makes a request to the OpenAI API to generate image
 // variations.
-func (o *openAI) CreateImageVariations(req CreateImageVariationsReq) (*ImageResponse, error) {
+func (o *openAI) CreateImageVariations(ctx context.Context, req CreateImageVariationsReq) (*ImageResponse, error) {
 	resp := &ImageResponse{}
 	params := map[string]string{}
 	if req.N != nil {
@@ -112,7 +120,7 @@ func (o *openAI) CreateImageVariations(req CreateImageVariationsReq) (*ImageResp
 	if req.User != "" {
 		params["user"] = req.User
 	}
-	err := o.makeMultiPartRequest(createImageVariationsPath, params, map[string]string{"image": req.Image}, resp)
+	err := o.makeMultiPartRequest(ctx, imageVariationsPath, params, map[string]string{"image": req.Image}, resp)
 	if err != nil {
 		return nil, err
 	}
@@ -138,7 +146,7 @@ type CreateImageEditsReq struct {
 
 // CreateImageEdits creates an edited or extended image given an original image
 // and a prompt.
-func (o *openAI) CreateImageEdits(req CreateImageEditsReq) (*ImageResponse, error) {
+func (o *openAI) CreateImageEdits(ctx context.Context, req CreateImageEditsReq) (*ImageResponse, error) {
 	resp := &ImageResponse{}
 	params := map[string]string{}
 	params["prompt"] = req.Prompt
@@ -158,7 +166,7 @@ func (o *openAI) CreateImageEdits(req CreateImageEditsReq) (*ImageResponse, erro
 	if req.Mask != "" {
 		files["mask"] = req.Mask
 	}
-	err := o.makeMultiPartRequest(createImageEditsPath, params, files, resp)
+	err := o.makeMultiPartRequest(ctx, createImageEditsPath, params, files, resp)
 	if err != nil {
 		return nil, err
 	}

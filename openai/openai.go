@@ -2,6 +2,7 @@ package openai
 
 import (
 	"bytes"
+	"context"
 	"encoding/json"
 	"fmt"
 	"io"
@@ -17,16 +18,10 @@ import (
 const (
 	openaiGoVersion = "0.1.0"
 	basePath        = "https://api.openai.com"
-	versionPath     = "v1"
+	apiVersion      = "v1"
 )
 
 var userAgent = fmt.Sprintf("openai-go/%v (%v; %v)", openaiGoVersion, runtime.Version(), runtime.GOOS)
-
-var imagesPath = fmt.Sprintf("%v/%v/images", basePath, versionPath)
-
-var createImagePath = imagesPath + "/generations" //"https://api.openai.com/v1/images/generations"
-var createImageVariationsPath = imagesPath + "/variations"
-var createImageEditsPath = imagesPath + "/edits"
 
 // HttpClient is the interface for the http client to use to make requests to
 // the OpenAI API
@@ -37,11 +32,11 @@ type HttpClient interface {
 // OpenAI is the OpenAI API client
 type OpenAI interface {
 	// CreateImage generates an image from a text prompt
-	CreateImage(req CreateImageReq) (*ImageResponse, error)
+	CreateImage(ctx context.Context, req CreateImageReq) (*ImageResponse, error)
 	// CreateImageVariations generates image variations
-	CreateImageVariations(req CreateImageVariationsReq) (*ImageResponse, error)
+	CreateImageVariations(ctx context.Context, req CreateImageVariationsReq) (*ImageResponse, error)
 	// CreateImageEdits generates image edits
-	CreateImageEdits(req CreateImageEditsReq) (*ImageResponse, error)
+	CreateImageEdits(ctx context.Context, req CreateImageEditsReq) (*ImageResponse, error)
 }
 
 type openAI struct {
@@ -73,7 +68,7 @@ func NewOpenAI(apiKey string, options ...openAIOption) OpenAI {
 	return res
 }
 
-func (o *openAI) makeJSONRequest(uri string, req any, resp any) error {
+func (o *openAI) makeJSONRequest(ctx context.Context, uri string, req any, resp any) error {
 	bodyBytes, err := json.Marshal(req)
 	if err != nil {
 		return fmt.Errorf("openai: JSON encoding error: %w", err)
@@ -83,13 +78,16 @@ func (o *openAI) makeJSONRequest(uri string, req any, resp any) error {
 	if err != nil {
 		return fmt.Errorf("openai: HTTP request creation error: %w", err)
 	}
+	if ctx != nil {
+		httpReq = httpReq.WithContext(ctx)
+	}
 	httpReq.Header.Set("Content-Type", "application/json")
 	return o.makeHttpRequest(httpReq, resp)
 }
 
 // makeMultiPartRequest makes a multipart request to the OpenAI API. It accepts a
 // map of form fields and a list of files paths to upload.
-func (o *openAI) makeMultiPartRequest(uri string, fields map[string]string, files map[string]string, resp any) error {
+func (o *openAI) makeMultiPartRequest(ctx context.Context, uri string, fields map[string]string, files map[string]string, resp any) error {
 	body := &bytes.Buffer{}
 	writer := multipart.NewWriter(body)
 	for key, val := range fields {
@@ -117,6 +115,9 @@ func (o *openAI) makeMultiPartRequest(uri string, fields map[string]string, file
 	httpReq, err := http.NewRequest("POST", uri, body)
 	if err != nil {
 		return fmt.Errorf("openai: HTTP request creation error: %w", err)
+	}
+	if ctx != nil {
+		httpReq = httpReq.WithContext(ctx)
 	}
 	httpReq.Header.Set("Content-Type", writer.FormDataContentType())
 	return o.makeHttpRequest(httpReq, resp)
