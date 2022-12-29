@@ -9,7 +9,7 @@ import (
 	"github.com/spf13/cobra"
 )
 
-func addModelsCmd(rootCmd *cobra.Command) {
+func modelsCmd() *cobra.Command {
 	var modelsCmd = &cobra.Command{
 		Use:   "models",
 		Short: "List models",
@@ -18,7 +18,7 @@ func addModelsCmd(rootCmd *cobra.Command) {
 			models()
 		},
 	}
-	rootCmd.AddCommand(modelsCmd)
+	return modelsCmd
 }
 
 func models() {

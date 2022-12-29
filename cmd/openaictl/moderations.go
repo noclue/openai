@@ -10,8 +10,8 @@ import (
 	"github.com/spf13/cobra"
 )
 
-// addModerationsCmd adds the moderations command to the root command.
-func addModerationsCmd(rootCmd *cobra.Command) {
+// moderationsCmd creates the moderations command to the root command.
+func moderationsCmd() *cobra.Command {
 	var moderationsCmd = &cobra.Command{
 		Use:   "moderation [flags]",
 		Short: "Given a input text, outputs if the model classifies it as violating OpenAI's content policy.",
@@ -24,7 +24,7 @@ func addModerationsCmd(rootCmd *cobra.Command) {
 	moderationsCmd.Flags().StringVarP(&input, "input", "i", "", "The text to be moderated")
 	moderationsCmd.Flags().StringVarP(&inputFile, "input-file", "f", "", "The file containing the text to be moderated")
 	moderationsCmd.Flags().StringVarP(&model, "model", "m", "", "The model to use. Defaults to text-moderation-latest")
-	rootCmd.AddCommand(moderationsCmd)
+	return moderationsCmd
 }
 
 // moderations runs the moderations command.

@@ -9,23 +9,24 @@ import (
 	"github.com/spf13/cobra"
 )
 
-func addImageCmd(rootCmd *cobra.Command) {
+func imageCmd() *cobra.Command {
 	var imageCmd = &cobra.Command{
 		Use:   "image",
 		Short: "Given a prompt and/or an input image, the model will generate a new image.",
 		Long:  `Given a prompt and/or an input image, the model will generate a new image.`,
 	}
-	rootCmd.AddCommand(imageCmd)
 
-	addImageCreateCmd(imageCmd)
+	imageCmd.AddCommand(imageCreateCmd())
 
-	addImageVariationsCmd(imageCmd)
+	imageCmd.AddCommand(imageVariationsCmd())
 
-	addImageEditCmd(imageCmd)
+	imageCmd.AddCommand(imageEditCmd())
+
+	return imageCmd
 }
 
-func addImageEditCmd(imageCmd *cobra.Command) {
-	var CreateImageEditsCmd = &cobra.Command{
+func imageEditCmd() *cobra.Command {
+	var createImageEditsCmd = &cobra.Command{
 		Use:   "edits [image file] [prompt]",
 		Short: "Create image edits from the provided image and prompt",
 		Long:  `Create image edits from the provided image and prompt. The image to use as the basis for the edit(s) must be a valid PNG file, less than 4MB, and square. The prompt is a text description of the desired edit(s). The maximum length of the prmpt is 1000 characters.`,
@@ -36,12 +37,12 @@ func addImageEditCmd(imageCmd *cobra.Command) {
 			imageEdits(imageFile, prompt, mask, n, getSize(size), getResponseFormat(responseFormat), user)
 		},
 	}
-	addImageFlags(CreateImageEditsCmd)
-	CreateImageEditsCmd.Flags().StringVarP(&mask, "mask", "m", "", "An additional image whose fully transparent areas (e.g. where alpha is zero) indicate where image should be edited. Must be a valid PNG file, less than 4MB, and have the same dimensions as image. (optional, default: none)")
-	imageCmd.AddCommand(CreateImageEditsCmd)
+	addImageFlags(createImageEditsCmd)
+	createImageEditsCmd.Flags().StringVarP(&mask, "mask", "m", "", "An additional image whose fully transparent areas (e.g. where alpha is zero) indicate where image should be edited. Must be a valid PNG file, less than 4MB, and have the same dimensions as image. (optional, default: none)")
+	return createImageEditsCmd
 }
 
-func addImageVariationsCmd(imageCmd *cobra.Command) {
+func imageVariationsCmd() *cobra.Command {
 	var createImageVariationsCmd = &cobra.Command{
 		Use:   "variations [image file]",
 		Short: "Create image variations from the provided image",
@@ -53,10 +54,10 @@ func addImageVariationsCmd(imageCmd *cobra.Command) {
 		},
 	}
 	addImageFlags(createImageVariationsCmd)
-	imageCmd.AddCommand(createImageVariationsCmd)
+	return createImageVariationsCmd
 }
 
-func addImageCreateCmd(imageCmd *cobra.Command) {
+func imageCreateCmd() *cobra.Command {
 	var createImageCmd = &cobra.Command{
 		Use:   "create [prompt]",
 		Short: "Create an image given a prompt",
@@ -68,7 +69,7 @@ func addImageCreateCmd(imageCmd *cobra.Command) {
 		},
 	}
 	addImageFlags(createImageCmd)
-	imageCmd.AddCommand(createImageCmd)
+	return createImageCmd
 }
 
 func addImageFlags(cmd *cobra.Command) {

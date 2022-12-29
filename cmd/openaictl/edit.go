@@ -9,7 +9,7 @@ import (
 	"github.com/spf13/cobra"
 )
 
-func addEditCmd(rootCmd *cobra.Command) {
+func editCmd() *cobra.Command {
 	var editCmd = &cobra.Command{
 		Use:   "edit",
 		Short: "Edit input text using the specified model and instruction",
@@ -28,7 +28,7 @@ func addEditCmd(rootCmd *cobra.Command) {
 	editCmd.Flags().StringVarP(&model, "model", "m", "text-davinci-edit-001", "model (optional, default: text-davinci-edit-001)")
 	editCmd.Flags().StringVarP(&instructionFile, "instruction-file", "f", "", "instruction file (required)")
 	editCmd.Flags().StringVarP(&instruction, "instruction", "s", "", "instruction (optional, default: none)")
-	rootCmd.AddCommand(editCmd)
+	return editCmd
 }
 
 func edit(model, instructionFile, instruction, inputFile, input string, n int, temperature float64, topP float64, outputFile string) {

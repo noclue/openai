@@ -27,16 +27,17 @@ func Run() {
 	var rootCmd = &cobra.Command{
 		Use:   "openai",
 		Short: "OpenAI CLI",
-		Long:  `OpenAI CLI provides command line tools for interacting with the OpenAI API. To authorize access set the OPENAI_API_KEY environment variable to your OpenAI API key.`,
+		Long:  `OpenAI CLI is a command line tool for interacting with the OpenAI API. To authorize access set the OPENAI_API_KEY environment variable to your OpenAI API key.`,
 	}
 	rootCmd.CompletionOptions.DisableDefaultCmd = true
-	addImageCmd(rootCmd)
 
-	addEditCmd(rootCmd)
+	rootCmd.AddCommand(imageCmd())
 
-	addModelsCmd(rootCmd)
+	rootCmd.AddCommand(editCmd())
 
-	addModerationsCmd(rootCmd)
+	rootCmd.AddCommand(modelsCmd())
+
+	rootCmd.AddCommand(moderationsCmd())
 
 	rootCmd.Execute()
 
