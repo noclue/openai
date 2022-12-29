@@ -29,11 +29,14 @@ func Run() {
 		Short: "OpenAI CLI",
 		Long:  `OpenAI CLI provides command line tools for interacting with the OpenAI API. To authorize access set the OPENAI_API_KEY environment variable to your OpenAI API key.`,
 	}
+	rootCmd.CompletionOptions.DisableDefaultCmd = true
 	addImageCmd(rootCmd)
 
 	addEditCmd(rootCmd)
 
 	addModelsCmd(rootCmd)
+
+	addModerationsCmd(rootCmd)
 
 	rootCmd.Execute()
 

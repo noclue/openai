@@ -35,6 +35,8 @@ type OpenAI interface {
 	Edit(ctx context.Context, req EditRequest) (*EditResponse, error)
 	// Models returns the list of models available to the user from the OpenAI API
 	Models(ctx context.Context) (*ModelsResponse, error)
+	// Moderation returns the moderation status of a text.
+	Moderation(ctx context.Context, req ModerationRequest) (*ModerationResponse, error)
 }
 
 type openAI struct {
