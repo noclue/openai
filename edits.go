@@ -7,8 +7,8 @@ import (
 
 var createEditPath = fmt.Sprintf("%v/%v/edits", basePath, apiVersion)
 
-// CreateEditRequest is the request to create an edit.
-type CreateEditRequest struct {
+// EditRequest is the request to create an edit.
+type EditRequest struct {
 	// ID of the model to use.
 	Model string `json:"model"`
 	// The input text to use as a starting point for the edit.
@@ -33,8 +33,8 @@ type EditChoice struct {
 	Index int    `json:"index"`
 }
 
-// CreateEditResponse is the response from creating an edit.
-type CreateEditResponse struct {
+// EditResponse is the response from creating an edit.
+type EditResponse struct {
 	Object  string       `json:"object"`
 	Created int64        `json:"created"`
 	Choices []EditChoice `json:"choices"`
@@ -43,8 +43,8 @@ type CreateEditResponse struct {
 
 // CreateEdit creates an edit. Given a prompt and an instruction, the model
 // will return an edited version of the prompt.
-func (c *openAI) CreateEdit(ctx context.Context, req *CreateEditRequest) (*CreateEditResponse, error) {
-	var resp CreateEditResponse
+func (c *openAI) CreateEdit(ctx context.Context, req EditRequest) (*EditResponse, error) {
+	var resp EditResponse
 	err := c.makeJSONRequest(ctx, createEditPath, req, &resp)
 	if err != nil {
 		return nil, err

@@ -7,7 +7,7 @@ import (
 
 func TestCheckJSONContentType(t *testing.T) {
 	t.Parallel()
-	t.Run("content-type is application/json", func(t *testing.T) {
+	t.Run("content-type is json", func(t *testing.T) {
 		t.Parallel()
 		resp := &http.Response{
 			Header: http.Header{
@@ -19,7 +19,7 @@ func TestCheckJSONContentType(t *testing.T) {
 			t.Errorf("expected no error but got %v", err)
 		}
 	})
-	t.Run("content-type is not application/json", func(t *testing.T) {
+	t.Run("content-type is not json", func(t *testing.T) {
 		t.Parallel()
 		resp := &http.Response{
 			Header: http.Header{

@@ -115,7 +115,7 @@ type CompletionsResponse struct {
 	Usage   Usage    `json:"usage"`
 }
 
-func (c *openAI) CreateCompletion(ctx context.Context, req *CompletionsRequest) (*CompletionsResponse, error) {
+func (c *openAI) CreateCompletion(ctx context.Context, req CompletionsRequest) (*CompletionsResponse, error) {
 	var resp CompletionsResponse
 	err := c.makeJSONRequest(ctx, completionsPath, req, &resp)
 	if err != nil {
